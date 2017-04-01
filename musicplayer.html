@@ -1,0 +1,70 @@
+<script>
+function Music(name, artist, playtime, genre)
+{
+    this.name = name;
+    this.artist = artist;
+    this.playtime = playtime
+    this.genre = genre;
+    this.playno = 0;
+    this.like = 0;
+        this.printInfo = function () {
+            document.write('<br>');
+            document.write(this.name + ' - ' + this.artist);
+            document.write('<br>');
+        }
+        this.likeSong = function () { this.like = !this.like };
+        this.playSong = function () { this.playno += 1 };
+}
+
+function Playlist(name, list, description)
+{
+    this.name = name;
+    this.list = list;
+    this.description = description;
+    this.songno = 0
+    this.bookmark = 0;
+    this.printInfo = function() {
+        document.write('<br>');
+        document.write('Playlist : '+this.name);
+        document.write('<br>');
+        document.write('Description : '+this.description);
+        document.write('<br>');
+        for (i = 0; i < this.songno; i++)
+        {
+            document.write('<br>');
+            document.write(i + 1);
+            document.write('. ' + this.list[i].name + ' - ' + this.list[i].artist);
+        }
+    }
+    this.addSong = function(music) {
+        this.list.push(music);
+        this.songno+=1;
+    }
+    this.bookmark = function() {
+        this.bookmark = !this.bookmark
+    }
+}
+
+function MusicPlayer(songList, songNo)
+{
+    this.songNo=0;
+    this.addSong = function(music) {
+        this.songList.push(music);
+        this.songNo+=1;
+    }
+    this.howMany = function() {
+        document.write('# of songs : '+songNo);
+    }
+    this.printInfo = function() {
+        document.write('<br>');
+        for (i = 0; i < this.songNo; i++)
+        {
+            document.write('<br>');
+            document.write(i + 1);
+            document.write('. ' + this.list[i].name + ' - ' + this.list[i].artist);
+        }
+    }
+}
+
+
+</script>
